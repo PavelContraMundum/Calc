@@ -1,0 +1,15 @@
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\MyCalc.exe
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\MyCalc.deps.json
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\MyCalc.runtimeconfig.json
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\MyCalc.dll
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\ref\MyCalc.dll
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\bin\Debug\net6.0\MyCalc.pdb
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.csproj.AssemblyReference.cache
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.AssemblyInfoInputs.cache
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.AssemblyInfo.cs
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.csproj.CoreCompileInputs.cache
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.dll
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\ref\MyCalc.dll
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.pdb
+D:\Programming\CSharp\Calc\MyCalc\MyCalc\obj\Debug\net6.0\MyCalc.genruntimeconfig.cache
