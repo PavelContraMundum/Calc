@@ -19,7 +19,8 @@ namespace Mycalc
             //Getting operand
 
 
-            //
+            //Show result
+
 
 
         }
