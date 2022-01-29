@@ -10,21 +10,29 @@ namespace Mycalc
 
 
             //Getting first number
-            string? numberString1 = Console.ReadLine();
-            float number1 = float.Parse(numberString1 ?? "0");
-
+            Console.WriteLine("Enter first number (float)");
+            var numberString1 = Console.ReadLine();
+            var isOkNumber1 = float.TryParse(numberString1, out var number1 );
+            if (!isOkNumber1)
+            {
+                Console.WriteLine("Wrong number. Good bye.");
+            }
 
 
 
             //Getting second number
-
-            string? numberString2 = Console.ReadLine();
-            float number2 = float.Parse(numberString2 ?? "0");
+            Console.WriteLine("Enter second number (float)");
+            var numberString2 = Console.ReadLine();
+            var isOkNumber2 = float.TryParse(numberString2, out var number2);
+            if (!isOkNumber2)
+            {
+                Console.WriteLine("Wrong number. Good bye.");
+            }
 
             //Getting operand
 
-            
-            string? operand = Console.ReadLine();
+            Console.WriteLine("Enter operand + - * /");
+            var operand = Console.ReadLine();
 
             //Calculation
 
@@ -41,9 +49,15 @@ namespace Mycalc
                     result = number1 * number2;
                     break;
                 case "/":
+                    if(number2 == 0)
+                    {
+                        Console.WriteLine("Divide by zero. Error.");
+                    }
                     result = number1 / number2;
                     break;
-
+                default:
+                    Console.WriteLine("Wrong operand. Good bye!");
+                    return;
             }
 
            
