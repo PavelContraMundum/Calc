@@ -11,7 +11,9 @@ namespace Mycalc
 
             //vytvoření instance
             var outputService = new OutputService();
-            var inputService = new InputService(outputService);
+            var inputStringService = new InputStringService();
+            var inputService = new InputFloatService(outputService, inputStringService);
+            var parseOperandService = new InputOperandService(outputService, inputStringService);
 
             outputService.Print("Calculator v1.0.0");
 
@@ -31,7 +33,7 @@ namespace Mycalc
             //Getting operand
 
             
-            var operand = GetOperand();
+            var operand = parseOperandService.GetOperand();
             if(operand == OperandType.None)
             {
                 outputService.Print("Wrong operand. Good bye.");
@@ -74,22 +76,6 @@ namespace Mycalc
                
             }
                     return null;
-        }
-
-        private static OperandType GetOperand()
-        {
-            Console.WriteLine("Enter operand + - * /");
-            var operandString = Console.ReadLine();
-
-            return operandString switch
-            {
-                "+" => OperandType.Addition,
-                "-" => OperandType.Subtraction,
-                "*" => OperandType.Multiplication,
-                "/" => OperandType.Division,
-                _ => OperandType.None,
-
-            };
         }
 
     }

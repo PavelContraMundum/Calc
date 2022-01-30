@@ -3,12 +3,14 @@
 
 namespace MyCalc.Services
 {
-    internal class InputService
+    internal class InputFloatService
     {
         private readonly OutputService _outputService;
-            public InputService(OutputService outputService)
+        private readonly InputStringService _inputStringService;
+            public InputFloatService(OutputService outputService, InputStringService inputStringService)
         {
             _outputService = outputService;
+            _inputStringService = InputStringService;
         }
         public float GetNumber()
         {
@@ -16,7 +18,7 @@ namespace MyCalc.Services
             bool isInputValid;
             do
             {
-                var numberString = Console.ReadLine();
+                var numberString = _inputStringService.GetStringFromUser();
                 var numberParsed = float.TryParse(numberString, out number);
                 isInputValid = numberParsed;
                 if (!numberParsed)
