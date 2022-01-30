@@ -1,4 +1,5 @@
 ﻿using MyCalc;
+using MyCalc.Services;
 using System;
 
 namespace Mycalc
@@ -7,17 +8,24 @@ namespace Mycalc
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Calculator v1.0.0");
+
+            //vytvoření instance
+            var outputService = new OutputService();
+            var inputService = new InputService(outputService);
+
+            outputService.Print("Calculator v1.0.0");
 
 
             //Getting first number
-            Console.WriteLine("Enter first number (float)");
-            var number1 = GetNumber();
-           
+            outputService.Print("Enter first number (float)");
+            
+            var number1 = inputService.GetNumber();
+
 
             //Getting second number
-            Console.WriteLine("Enter second number (float)");
-            var number2 = GetNumber();
+            outputService.Print("Enter second number (float)");
+         
+            var number2 = inputService.GetNumber();
            
 
             //Getting operand
@@ -26,20 +34,20 @@ namespace Mycalc
             var operand = GetOperand();
             if(operand == OperandType.None)
             {
-                Console.WriteLine("Wrong operand. Good bye.");
+                outputService.Print("Wrong operand. Good bye.");
                 return;
             }
 
             //Calculation
 
             var result = Calculate(number1, number2, operand);
+
+            if(result is not null)
+            {
+                outputService.Print(result.Value.ToString("F"));
+            }
+             
             
-
-           
-            //Show result
-
-            Console.WriteLine(result);
-
         }
 
         private static float? Calculate(float number1, float number2, OperandType operand)
@@ -84,24 +92,6 @@ namespace Mycalc
             };
         }
 
-        private static float GetNumber()
-        {
-            float number;
-            bool isInputValid;
-            do
-            {
-                var numberString = Console.ReadLine();
-                var numberParsed = float.TryParse(numberString, out number);
-                 isInputValid = numberParsed;
-                if (!numberParsed)
-                {
-                    Console.WriteLine("Wrong number, please try again enter float number.");
-                }
-
-            } while (!isInputValid);
-            
-            return number;
-        }
     }
 }
 
