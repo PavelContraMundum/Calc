@@ -10,9 +10,11 @@ namespace MyCalc.Services
     {
         private readonly OutputService _outputService;
         private readonly InputStringService _inputStringService;
+        
         public InputOperandService(OutputService outputService, InputStringService inputStringService)
         {
             _outputService = outputService;
+            _inputStringService = inputStringService;
         }
         public OperandType GetOperand()
         {

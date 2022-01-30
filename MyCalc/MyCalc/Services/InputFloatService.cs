@@ -10,7 +10,7 @@ namespace MyCalc.Services
             public InputFloatService(OutputService outputService, InputStringService inputStringService)
         {
             _outputService = outputService;
-            _inputStringService = InputStringService;
+            _inputStringService = inputStringService;
         }
         public float GetNumber()
         {
