@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyCalc;
+using System;
 
 namespace Mycalc
 {
@@ -30,40 +31,66 @@ namespace Mycalc
 
             //Getting operand
 
-            Console.WriteLine("Enter operand + - * /");
-            var operand = Console.ReadLine();
+            
+            var operand = GetOperand();
+            if(operand == OperandType.None)
+            {
+                Console.WriteLine("Wrong operand. Good bye.");
+                return;
+            }
 
             //Calculation
 
-            float result = 0;
-            switch (operand)
-            {
-                case "+": 
-                    result = number1.Value + number2.Value;
-                    break;
-                case "-":
-                    result = number1.Value - number2.Value;
-                    break;
-                case "*":
-                    result = number1.Value * number2.Value;
-                    break;
-                case "/":
-                    if(number2 == 0)
-                    {
-                        Console.WriteLine("Divide by zero. Error.");
-                    }
-                    result = number1.Value / number2.Value;
-                    break;
-                default:
-                    Console.WriteLine("Wrong operand. Good bye!");
-                    return;
-            }
+            var result = Calculate(number1.Value, number2.Value, operand);
+            
 
            
             //Show result
 
             Console.WriteLine(result);
 
+        }
+
+        private static float? Calculate(float number1, float number2, OperandType operand)
+        {
+            switch (operand)
+            {
+                case OperandType.Addition:
+                    return number1 + number2;
+                    
+                case OperandType.Subtraction:
+                    return number1 - number2;
+                    
+                case OperandType.Multiplication:
+                    return number1 * number2;
+                   
+                case OperandType.Division:
+                    if (number2 == 0)
+                    {
+                        Console.WriteLine("Divide by zero. Error.");
+                        return null;
+                    }
+                    return number1 / number2;
+                   
+               
+            }
+                    return null;
+        }
+
+        private static OperandType GetOperand()
+        {
+            Console.WriteLine("Enter operand + - * /");
+            var operandString = Console.ReadLine();
+
+            return operandString switch
+            {
+                "+" => OperandType.Addition,
+                "-" => OperandType.Subtraction,
+                "*" => OperandType.Multiplication,
+                "/" => OperandType.Division,
+                _ => OperandType.None,
+
+            };
         }
 
         private static float? GetNumber()
